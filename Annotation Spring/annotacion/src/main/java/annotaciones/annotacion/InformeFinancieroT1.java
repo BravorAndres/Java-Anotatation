@@ -1,12 +1,22 @@
 package annotaciones.annotacion;
 
+import org.springframework.stereotype.Component;
+
+
+@Component
 public class InformeFinancieroT1 implements InformeFinanciero{
 
-    @Override
+    private String Informe;
+
+  //  @Override
     public String getInformeFinanciero() {
-       return "Presentacion de informe de trimestre 1";
+       return Informe;
     }
 
     
+    public InformeFinancieroT1(String informe){
+        this.Informe = informe;
+    }
+
     
 }
