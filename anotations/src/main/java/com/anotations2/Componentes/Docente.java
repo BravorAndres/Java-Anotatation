@@ -21,11 +21,22 @@ public class Docente implements empleado {
     //Dependencias
     private Informe InformeDocente;
 
-    
+
     @Autowired
     public Docente(InformeT1 InformeDocente){
         this.InformeDocente = InformeDocente;
     }
+
+    @Autowired
+    public void setInformeDocente(InformeT1 InformeDocente){
+        this.InformeDocente = InformeDocente;
+    }
+
+    public Docente(String Nombre,long id){
+        this.Nombre = Nombre;
+        this.id = id;
+    }
+
 
 
 
@@ -50,6 +61,17 @@ public class Docente implements empleado {
     @Override
     public String getInformeEmpleado() {
         return InformeDocente.getInforme();
+    }
+
+
+    @Override
+    public void setParametros(String name,Long id,int horastrabajadas,int salHora,String contrato) {
+        this.Nombre = name;
+        this.id = id;
+        this.horastrabajadas = horastrabajadas;
+        this.salHora = salHora;
+        this.Contrato = contrato;
+        
     }
     
 }
