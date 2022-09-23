@@ -1,6 +1,10 @@
 package com.anotations2.Componentes;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import com.anotations2.dependencias.Informe;
+import com.anotations2.dependencias.InformeT1;
+
 
 //import lombok.Data;
 //import lombok.NoArgsConstructor;
@@ -12,6 +16,19 @@ public class Docente implements empleado {
     private Long id;
     private int horastrabajadas;
     private int salHora;
+    private String Contrato;
+
+    //Dependencias
+    private Informe InformeDocente;
+
+    
+    @Autowired
+    public Docente(InformeT1 InformeDocente){
+        this.InformeDocente = InformeDocente;
+    }
+
+
+
 /* 
     public Docente(){
         Nombre = "eduardo";
@@ -21,15 +38,18 @@ public class Docente implements empleado {
     } */
 
     @Override
-    public int horasTrabajo() {
-        // TODO Auto-generated method stub
-        return 0;
+    public int salario() {
+        return salHora*horastrabajadas;
     }
 
     @Override
-    public int salarioXhora() {
-        // TODO Auto-generated method stub
-        return 0;
+    public String TipoContrato() {
+        return Contrato;
+    }
+
+    @Override
+    public String getInformeEmpleado() {
+        return InformeDocente.getInforme();
     }
     
 }

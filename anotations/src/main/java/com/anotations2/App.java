@@ -16,7 +16,8 @@ public class App
         System.out.println("Funciona 1.0");
         empleado profesor1 = contexto.getBean("Docente",empleado.class);
 
+        System.out.println(profesor1.getInformeEmpleado());
         System.out.println("Funciona");
-
+            
     }
 }
