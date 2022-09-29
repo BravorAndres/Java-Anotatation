@@ -1,9 +1,11 @@
 package com.anotations2.Componentes;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import com.anotations2.dependencias.Informe;
-import com.anotations2.dependencias.InformeT1;
+
+
 
 
 //import lombok.Data;
@@ -19,18 +21,20 @@ public class Docente implements empleado {
     private String Contrato;
 
     //Dependencias
+
+    
     private Informe InformeDocente;
 
 
-    @Autowired
-    public Docente(InformeT1 InformeDocente){
+    @Autowired 
+    public Docente(@Qualifier("InformeT2") Informe InformeDocente){
         this.InformeDocente = InformeDocente;
     }
 
-    @Autowired
-    public void setInformeDocente(InformeT1 InformeDocente){
+    
+    public void setInformeDocente(Informe InformeDocente){
         this.InformeDocente = InformeDocente;
-    }
+    }     
 
     public Docente(String Nombre,long id){
         this.Nombre = Nombre;
