@@ -2,6 +2,7 @@ package com.anotations2.Componentes;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import com.anotations2.dependencias.Informe;
 
@@ -12,6 +13,7 @@ import com.anotations2.dependencias.Informe;
 //import lombok.NoArgsConstructor;
 
 @Component("Docente")
+@Scope("prototype")
 public class Docente implements empleado {
 
     private String Nombre;
